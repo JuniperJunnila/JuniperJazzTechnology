@@ -1,0 +1,78 @@
+@use "node_modules/bootstrap/scss/bootstrap.scss";
+
+.silver-ratio {
+  @extend .d-flex !optional;
+  overflow: scroll;
+}
+
+.silver-rectangle-h {
+  @extend .silver-ratio !optional;
+  @extend .flex-row !optional;
+  aspect-ratio: 2.414/1;
+}
+
+.silver-rectangle-v {
+  @extend .silver-ratio !optional;
+  @extend .flex-column !optional;
+  aspect-ratio: 1/2.414;
+}
+
+.silver-rectangle-h-r {
+  @extend .silver-rectangle-h !optional;
+  @extend .flex-row-reverse !optional;
+}
+
+.silver-rectangle-v-r {
+  @extend .silver-rectangle-v !optional;
+  @extend .flex-column-reverse !optional;
+}
+
+.silver-square {
+  @extend .silver-ratio !optional;
+  @extend .flex-row !optional;
+  aspect-ratio: 1/1;
+}
+
+.silver-square-v {
+  @extend .silver-ratio !optional;
+  @extend .flex-column !optional;
+  aspect-ratio: 1/1;
+}
+
+// BORDERED VARIANTS FOR TESTING
+
+.silver-ratio-border {
+  @extend .border !optional;
+  @extend .border-primary !optional;
+  @extend .border-3 !optional;
+}
+
+.silver-rectangle-h-border {
+  @extend .silver-ratio-border !optional;
+  @extend .silver-rectangle-h !optional;
+}
+
+.silver-rectangle-v-border {
+  @extend .silver-ratio-border !optional;
+  @extend .silver-rectangle-v !optional;
+}
+
+.silver-rectangle-h-r-border {
+  @extend .silver-ratio-border !optional;
+  @extend .silver-rectangle-h-r !optional;
+}
+
+.silver-rectangle-v-r-border {
+  @extend .silver-ratio-border !optional;
+  @extend .silver-rectangle-v-r !optional;
+}
+
+.silver-square-border {
+  @extend .silver-ratio-border !optional;
+  @extend .silver-square !optional;
+}
+
+.silver-square-v-border {
+  @extend .silver-ratio-border !optional;
+  @extend .silver-square-v !optional;
+}

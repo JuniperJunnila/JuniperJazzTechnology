@@ -1,0 +1,78 @@
+@use "node_modules/bootstrap/scss/bootstrap.scss";
+
+.gold-ratio {
+  @extend .d-flex !optional;
+  overflow: scroll;
+}
+
+.gold-rectangle-h {
+  @extend .gold-ratio !optional;
+  @extend .flex-row !optional;
+  aspect-ratio: 1.618/1;
+}
+
+.gold-rectangle-v {
+  @extend .gold-ratio !optional;
+  @extend .flex-column !optional;
+  aspect-ratio: 1/1.618;
+}
+
+.gold-rectangle-h-r {
+  @extend .gold-rectangle-h !optional;
+  @extend .flex-row-reverse !optional;
+}
+
+.gold-rectangle-v-r {
+  @extend .gold-rectangle-v !optional;
+  @extend .flex-column-reverse !optional;
+}
+
+.gold-square {
+  @extend .gold-ratio !optional;
+  @extend .flex-row !optional;
+  aspect-ratio: 1/1;
+}
+
+.gold-square-v {
+  @extend .gold-ratio !optional;
+  @extend .flex-column !optional;
+  aspect-ratio: 1/1;
+}
+
+// BORDERED VARIANTS FOR TESTING
+
+.gold-ratio-border {
+  @extend .border !optional;
+  @extend .border-primary !optional;
+  @extend .border-3 !optional;
+}
+
+.gold-rectangle-h-border {
+  @extend .gold-ratio-border !optional;
+  @extend .gold-rectangle-h !optional;
+}
+
+.gold-rectangle-v-border {
+  @extend .gold-ratio-border !optional;
+  @extend .gold-rectangle-v !optional;
+}
+
+.gold-rectangle-h-r-border {
+  @extend .gold-ratio-border !optional;
+  @extend .gold-rectangle-h-r !optional;
+}
+
+.gold-rectangle-v-r-border {
+  @extend .gold-ratio-border !optional;
+  @extend .gold-rectangle-v-r !optional;
+}
+
+.gold-square-border {
+  @extend .gold-ratio-border !optional;
+  @extend .gold-square !optional;
+}
+
+.gold-square-v-border {
+  @extend .gold-ratio-border !optional;
+  @extend .gold-square-v !optional;
+}
