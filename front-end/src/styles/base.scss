@@ -1,9 +1,36 @@
 @use "node_modules/bootstrap/scss/bootstrap.scss";
 
+:root {
+  @extend .text-bg-light !optional;
+}
+[data-theme="dark"] {
+  @extend .text-bg-dark !optional;button {
+    color: var(--text-primary);
+    background-color: var(--background);
+    border: 2px var(--text-primary) solid;
+    float: right;
+    transition: all 0.5s;
+  }
+}
+
 html,
 body {
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+.page {
+  color: var(--text-primary);
+  background-color: var(--background);
+  font-size: large;
+  font-weight: bold;
+  padding: 20px;
+  height: calc(100vh - 40px);
+  transition: all 0.5s;
+}
+
+.loading {
+  background-color: darkslategrey;
 }
 
 article {

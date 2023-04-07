@@ -1,33 +1,8 @@
 import React, { useState } from "react";
+import useLocalStorage from "use-local-storage";
 import AllRoutes from "./utils/Routes/Routes.js";
 
 const initialAppState = {
-  //Header.js
-  Header: () => (
-    <>
-      <h1>My Page</h1>
-      <nav>
-        <a href="#home">Home</a> |<a href="#about">About</a> |
-        <a href="#contact">Contact</a>
-      </nav>
-    </>
-  ),
-
-  //Home.js
-  Home: () => (
-    <>
-      <h2>Welcome to My Page!</h2>
-      <p>This is the home of my homepage.</p>
-    </>
-  ),
-
-  //Footer.js
-  Footer: () => (
-    <div className="footer">
-      <p>&copy; 2023 Slices</p>
-    </div>
-  ),
-
   //GoldenSpiral.js and SilverSpiral.js
   orientation:
     window.screen.availHeight >= window.screen.availWidth
@@ -142,23 +117,18 @@ const initialAppState = {
 
 export default function App() {
   const [appState, setAppState] = useState(initialAppState);
+  const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [theme, setTheme] = useLocalStorage(
+    "theme",
+    defaultDark ? "dark" : "light"
+  );
 
-  if (!appState) {
-    return <div />;
-  }
-
-  const _updateHome = (newHome) => {
-    setAppState(() => newHome);
-  };
-  const _updateHeader = (newHeader) => {
-    setAppState(() => newHeader);
-  };
-  const _updateFooter = (newFooter) => {
-    setAppState(() => newFooter);
+  const switchTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
   };
 
   const _updateGoldenSpiral = (target, updatedData) => {
-    console.log(target);
     if (target.toLowerCase() === "elements") {
       setAppState({ ...appState, goldenSpiralElements: updatedData });
     } else if (target.toLowerCase() === "orientation") {
@@ -169,7 +139,6 @@ export default function App() {
   };
 
   const _updateSilverSpiral = (target, updatedData) => {
-    console.log(target);
     if (target.toLowerCase() === "elements") {
       setAppState({ ...appState, silverSpiralElements: updatedData });
     } else if (target.toLowerCase() === "orientation") {
@@ -180,17 +149,17 @@ export default function App() {
   };
 
   return (
-    <AllRoutes
-      className="page"
-      id="page"
-      appState={appState}
-      updaters={{
-        _updateHeader,
-        _updateHome,
-        _updateFooter,
-        _updateGoldenSpiral,
-        _updateSilverSpiral,
-      }}
-    />
+    <div className="page" data-theme={theme}>
+      <AllRoutes
+        id="page"
+        appState={appState}
+        updaters={{
+          _updateGoldenSpiral,
+          _updateSilverSpiral,
+        }}
+        theme={theme}
+        switchTheme={switchTheme}
+      />
+    </div>
   );
 }

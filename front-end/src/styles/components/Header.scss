@@ -1,0 +1,12 @@
+@use "node_modules/bootstrap/scss/bootstrap.scss";
+
+.theme-switch {
+  @extend .btn !optional;
+  @extend .btn-lg !optional;
+  @extend .btn-floating !optional;
+  color: var(--text-primary);
+  background-color: var(--background);
+  border: 2px var(--text-primary) solid;
+  float: right;
+  transition: all 0.5s;
+}
