@@ -20,7 +20,7 @@ export default function AllRoutes({ appState, updaters, theme, switchTheme }) {
               switchTheme={switchTheme}
             />
           </header>
-          <main id="main">
+          <main id="main" className="main">
             <Routes>
               <Route
                 exact
@@ -30,7 +30,7 @@ export default function AllRoutes({ appState, updaters, theme, switchTheme }) {
               <Route path="*" element={<PageNotImplemented />} />
             </Routes>
           </main>
-          <footer id="footer">
+          <footer id="footer" className="footer">
             <Footer appState={appState} _updateFooter={_updateFooter} />
           </footer>
         </article>

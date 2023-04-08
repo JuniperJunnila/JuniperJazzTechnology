@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Lamp, LampFill } from "react-bootstrap-icons";
 
 export default function Header({ theme, switchTheme }) {
-  const switchSwitch = theme === "dark" ? <LampFill /> : <Lamp />;
+  const switchSwitch = theme === "custom-dark" ? <LampFill /> : <Lamp />;
   return (
     <>
       <h1>Juniper Jazz Technology</h1>

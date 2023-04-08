@@ -120,11 +120,13 @@ export default function App() {
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [theme, setTheme] = useLocalStorage(
     "theme",
-    defaultDark ? "dark" : "light"
+    defaultDark === "dark" ? "custom-dark" : "custom-light"
   );
 
+  console.log(theme)
+
   const switchTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
+    const newTheme = theme === "custom-light" ? "custom-dark" : "custom-light";
     setTheme(newTheme);
   };
 
