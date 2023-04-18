@@ -1,27 +1,9 @@
 @use "node_modules/bootstrap/scss/bootstrap.scss";
 @use "./variables.scss";
 @use "./mixins.scss";
+@use "./utilities/themes.scss";
 
-[data-theme="custom-light"] {
-  --background-color: #d2d8db;
-  --border-color: #202528;
-  --caret-color: #282024;
-  --color: #2d3539;
-  --column-rule-color: #392d33;
-  --outline-color: #39372d;
-  --text-decoration-color: #392d33;
-}
-
-[data-theme="custom-dark"] {
-  --background-color: #2d3539;
-  --border-color: #939799;
-  --caret-color: #999396;
-  --color: #d2d8db;
-  --column-rule-color: #dbd2d7;
-  --outline-color: #dbdad2;
-  --text-decoration-color: #dbd2d7;
-}
-.page {
+.theme-elements {
   background-color: var(--background-color);
   border-color: var(--border-color);
   caret-color: var(--caret-color);
@@ -29,11 +11,31 @@
   column-rule-color: var(--column-rule-color);
   outline-color: var(--outline-color);
   text-decoration-color: var(--text-decoration-color);
+  font-family: var(--fontstack-tertiary);
   font-size: large;
   font-weight: bold;
-  padding: 20px;
-  min-height: calc(100vh);
-  transition: all 0.5s;
+  transition: all 0.5s ease-in-out;
+}
+
+.page {
+  @extend .theme-elements !optional;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 0.5%;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+h1,
+h2 {
+  font-family: var(--fontstack-primary);
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--fontstack-secondary);
 }
 
 html,
@@ -47,24 +49,41 @@ article {
   flex-direction: column;
 }
 
+header,
+main,
+footer {
+  @extend .theme-elements !optional;
+}
+
 main {
   flex-grow: 1;
 }
 
-header,
-main,
 footer {
-  flex-shrink: 0;
-}
-
-footer {
-  @extend .fixed-bottom !optional;
+  @extend .sticky-bottom !optional;
 }
 
 .h-wrapper {
+  justify-self: center;
   max-height: 100%;
 }
 
 .v-wrapper {
   max-width: 100%;
+}
+
+.card {
+  background-color: var(--background-color);
+  border-color: var(--border-color);
+  caret-color: var(--caret-color);
+  color: var(--color);
+  column-rule-color: var(--column-rule-color);
+  outline-color: var(--outline-color);
+  text-decoration-color: var(--text-decoration-color);
+  font-family: var(--fontstack-tertiary);
+  font-size: large;
+  font-weight: bold;
+  overflow: scroll;
+  transition: all 0.5s ease-in-out;
+  border: 0;
 }

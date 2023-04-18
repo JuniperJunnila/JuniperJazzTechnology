@@ -2,14 +2,14 @@ import React from "react";
 
 //number of elements must equal 3
 
-export default function GoldenSpiral({ appState, _updateGoldenSpiral }) {
-  const { orientation } = appState;
-  const elements = appState.goldenSpiralElements;
-
+export default function GoldenSpiral({
+  orientation,
+  elements,
+  _updateOrientation,
+}) {
   React.useEffect(() => {
     function handleResize() {
-      _updateGoldenSpiral(
-        "orientation",
+      _updateOrientation(
         window.screen.availHeight >= window.screen.availWidth
           ? "vertical"
           : "horizontal"

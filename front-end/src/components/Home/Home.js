@@ -1,10 +1,14 @@
 import React from "react";
+import SilverSpiral from "../../utils/SilverSpiral";
 
-export default function Home() {
+export default function Home({ appState, _updateOrientation, _updateHome }) {
   return (
     <div className="home" id="home">
-      <h1>Hello all</h1>
-      <></>
+      <SilverSpiral
+        orientation={appState.orientation}
+        elements={appState.homeElements}
+        _updateOrientation={_updateOrientation}
+      />
     </div>
   );
 }

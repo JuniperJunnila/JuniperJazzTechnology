@@ -1,3 +1,5 @@
+@use "node_modules/bootstrap/scss/bootstrap.scss";
+
 .gold-ratio {
   @extend .d-flex !optional;
   overflow: scroll;
@@ -29,12 +31,12 @@
   @extend .gold-ratio !optional;
   @extend .flex-row !optional;
   aspect-ratio: 1/1;
+  padding: 2px;
 }
 
 .gold-square-v {
-  @extend .gold-ratio !optional;
+  @extend .gold-square !optional;
   @extend .flex-column !optional;
-  aspect-ratio: 1/1;
 }
 
 // BORDERED VARIANTS FOR TESTING

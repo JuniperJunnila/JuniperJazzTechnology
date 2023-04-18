@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Chivo&family=Della+Respira&family=Rasa&display=swap");
+
+$fontstack-primary-default: "Della Respira", sans-serif;
+$fontstack-secondary-default: "Chivo", sans-serif;
+$fontstack-tertiary-default: "Rasa", sans-serif;
+
+[data-theme="default-light"] {
+  --background-color: #d2d8db;
+  --border-color: #202528;
+  --caret-color: #282024;
+  --color: #2d3539;
+  --column-rule-color: #392d33;
+  --outline-color: #39372d;
+  --text-decoration-color: #392d33;
+  --fontstack-primary: $fontstack-primary-default;
+  --fontstack-secondary: $fontstack-primary-default;
+  --fontstack-tertiary: $fontstack-tertiary-default;
+}
+
+[data-theme="default-dark"] {
+  --background-color: #2d3539;
+  --border-color: #939799;
+  --caret-color: #999396;
+  --color: #d2d8db;
+  --column-rule-color: #dbd2d7;
+  --outline-color: #dbdad2;
+  --text-decoration-color: #dbd2d7;
+  --fontstack-primary: $fontstack-primary-default;
+  --fontstack-secondary: $fontstack-primary-default;
+  --fontstack-tertiary: $fontstack-tertiary-default;
+}
+
+[data-theme="gold-light"] {
+  --background-color: #fac882;
+  --border-color: #76520f;
+  --caret-color: #76520f;
+  --color: #553500;
+  --column-rule-color: #76520f;
+  --outline-color: #000000;
+  --text-decoration-color: #000000;
+  --fontstack-primary: $fontstack-primary-default;
+  --fontstack-secondary: $fontstack-primary-default;
+  --fontstack-tertiary: $fontstack-tertiary-default;
+}
+
+[data-theme="gold-dark"] {
+  --background-color: #76520e;
+  --border-color: #fac882;
+  --caret-color: #fac882;
+  --color: #fffff6;
+  --column-rule-color: #fac882;
+  --outline-color: #ffffff;
+  --text-decoration-color: #ffffff;
+  --fontstack-primary: $fontstack-primary-default;
+  --fontstack-secondary: $fontstack-primary-default;
+  --fontstack-tertiary: $fontstack-tertiary-default;
+}
+
+[data-theme="green-light"] {
+  --background-color: #a4ac86;
+  --border-color: #582f0e;
+  --caret-color: #000000;
+  --color: #333d29;
+  --column-rule-color: #000000;
+  --outline-color: #582f0e;
+  --text-decoration-color: #582f0e;
+  --fontstack-primary: $fontstack-primary-default;
+  --fontstack-secondary: $fontstack-primary-default;
+  --fontstack-tertiary: $fontstack-tertiary-default;
+}
+
+[data-theme="green-dark"] {
+  --background-color: #333d29;
+  --border-color: #b6ad90;
+  --caret-color: #c2c5aa;
+  --color: #a4ac86;
+  --column-rule-color: #c2c5aa;
+  --outline-color: #b6ad90;
+  --text-decoration-color: #b6ad90;
+  --fontstack-primary: $fontstack-primary-default;
+  --fontstack-secondary: $fontstack-primary-default;
+  --fontstack-tertiary: $fontstack-tertiary-default;
+}
+
+[data-theme="greyscale-light"] {
+  --background-color: #e9ecef;
+  --border-color: #343a40;
+  --caret-color: #212529;
+  --color: #495057;
+  --column-rule-color: #212529;
+  --outline-color: #343a40;
+  --text-decoration-color: #212529;
+  --fontstack-primary: $fontstack-primary-default;
+  --fontstack-secondary: $fontstack-primary-default;
+  --fontstack-tertiary: $fontstack-tertiary-default;
+}
+
+[data-theme="greyscale-dark"] {
+  --background-color: #212529;
+  --border-color: #adb5bd;
+  --caret-color: #adb5bd;
+  --color: #f8f9fa;
+  --column-rule-color: #dee2e6;
+  --outline-color: #dee2e6;
+  --text-decoration-color: #dee2e6;
+  --fontstack-primary: $fontstack-primary-default;
+  --fontstack-secondary: $fontstack-primary-default;
+  --fontstack-tertiary: $fontstack-tertiary-default;
+}

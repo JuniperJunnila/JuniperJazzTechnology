@@ -4,10 +4,19 @@ import Home from "../../components/Home/Home.js";
 import PageNotImplemented from "../PageNotImplemented.js";
 import Header from "../../components/Header/Header.js";
 import Footer from "../../components/Footer/Footer.js";
+import About from "../../components/About/About.js";
 
 //SCSS Tag Group: r1
-export default function AllRoutes({ appState, updaters, theme, switchTheme }) {
-  const { _updateHeader, _updateHome, _updateFooter } = updaters;
+export default function AllRoutes({ appState, updaters, switchTheme }) {
+  const {
+    _updateHeader,
+    _updateHome,
+    _updateOrientation,
+    _updateAbout,
+    _updateFooter,
+    _alternateTheme,
+  } = updaters;
+
   return (
     <>
       <BrowserRouter>
@@ -16,8 +25,8 @@ export default function AllRoutes({ appState, updaters, theme, switchTheme }) {
             <Header
               appState={appState}
               _updateHeader={_updateHeader}
-              theme={theme}
               switchTheme={switchTheme}
+              _alternateTheme={_alternateTheme}
             />
           </header>
           <main id="main" className="main">
@@ -25,7 +34,22 @@ export default function AllRoutes({ appState, updaters, theme, switchTheme }) {
               <Route
                 exact
                 path="/"
-                element={<Home appState={appState} _updateHome={_updateHome} />}
+                element={
+                  <Home
+                    appState={appState}
+                    _updateOrientation={_updateOrientation}
+                    _updateHome={_updateHome}
+                  />
+                }
+              />
+              <Route
+                path="/about"
+                element={
+                  <About
+                    appState={appState}
+                    _updateOrientation={_updateAbout}
+                  />
+                }
               />
               <Route path="*" element={<PageNotImplemented />} />
             </Routes>

@@ -2,14 +2,14 @@ import React from "react";
 
 //number of elements must equal 4
 
-export default function SilverSpiral({ appState, _updateSilverSpiral }) {
-  const { orientation } = appState;
-  const elements = appState.silverSpiralElements;
-
+export default function SilverSpiral({
+  orientation,
+  elements,
+  _updateOrientation,
+}) {
   React.useEffect(() => {
     function handleResize() {
-      _updateSilverSpiral(
-        "orientation",
+      _updateOrientation(
         window.screen.availHeight >= window.screen.availWidth
           ? "vertical"
           : "horizontal"

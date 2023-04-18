@@ -1,3 +1,5 @@
+@use "node_modules/bootstrap/scss/bootstrap.scss";
+
 .silver-ratio {
   @extend .d-flex !optional;
   overflow: scroll;
@@ -29,12 +31,12 @@
   @extend .silver-ratio !optional;
   @extend .flex-row !optional;
   aspect-ratio: 1/1;
+  padding: 2px;
 }
 
 .silver-square-v {
-  @extend .silver-ratio !optional;
+  @extend .silver-square !optional;
   @extend .flex-column !optional;
-  aspect-ratio: 1/1;
 }
 
 // BORDERED VARIANTS FOR TESTING
