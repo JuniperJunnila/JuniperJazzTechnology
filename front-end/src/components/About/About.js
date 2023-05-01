@@ -1,12 +1,12 @@
 import React from "react";
 import GoldSpiral from "../../utils/GoldenSpiral";
 
-export default function About({ appState, _updateOrientation, _updateAbout }) {
+export default function About({ orientation, aboutElements, _updateOrientation }) {
   return (
     <div className="about" id="about">
       <GoldSpiral
-        orientation={appState.orientation}
-        elements={appState.aboutElements}
+        orientation={orientation}
+        elements={aboutElements}
         _updateOrientation={_updateOrientation}
       />
     </div>

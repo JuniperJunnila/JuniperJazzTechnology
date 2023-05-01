@@ -5,6 +5,7 @@ $fontstack-secondary-default: "Chivo", sans-serif;
 $fontstack-tertiary-default: "Rasa", sans-serif;
 
 [data-theme="default-light"] {
+  --background-image: none;
   --background-color: #d2d8db;
   --border-color: #202528;
   --caret-color: #282024;
@@ -44,7 +45,7 @@ $fontstack-tertiary-default: "Rasa", sans-serif;
 }
 
 [data-theme="gold-dark"] {
-  --background-color: #76520e;
+  --background-color: #493209;
   --border-color: #fac882;
   --caret-color: #fac882;
   --color: #fffff6;
@@ -55,6 +56,53 @@ $fontstack-tertiary-default: "Rasa", sans-serif;
   --fontstack-secondary: $fontstack-primary-default;
   --fontstack-tertiary: $fontstack-tertiary-default;
 }
+
+// [data-theme="gold-light"] {
+//   --background-image: linear-gradient(
+//     to right,
+//     #fac882 0,
+//     #fbd49d 14%,
+//     #fcdcb1 24%,
+//     #fce6c5 50%,
+//     #fcdcb1 95%,
+//     #fbd49d 98%,
+//     #fac882 100%
+//   );
+
+//   --background-color: #fac882;
+//   --border-color: #76520f;
+//   --caret-color: #76520f;
+//   --color: #553500;
+//   --column-rule-color: #76520f;
+//   --outline-color: #000000;
+//   --text-decoration-color: #000000;
+//   --fontstack-primary: $fontstack-primary-default;
+//   --fontstack-secondary: $fontstack-primary-default;
+//   --fontstack-tertiary: $fontstack-tertiary-default;
+// }
+
+// [data-theme="gold-dark"] {
+//   --background-image: linear-gradient(
+//     to right,
+//     #493209 0,
+//     #5b3f0b 14%,
+//     #6e4c0d 24%,
+//     #76520e 50%,
+//     #6e4c0d 95%,
+//     #5b3f0b 98%,
+//     #493209 100%
+//   );
+//   --background-color: #493209;
+//   --border-color: #fac882;
+//   --caret-color: #fac882;
+//   --color: #fffff6;
+//   --column-rule-color: #fac882;
+//   --outline-color: #ffffff;
+//   --text-decoration-color: #ffffff;
+//   --fontstack-primary: $fontstack-primary-default;
+//   --fontstack-secondary: $fontstack-primary-default;
+//   --fontstack-tertiary: $fontstack-tertiary-default;
+// }
 
 [data-theme="green-light"] {
   --background-color: #a4ac86;

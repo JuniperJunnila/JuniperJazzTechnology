@@ -1,3 +1,7 @@
+const initialTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+  ? "default-dark"
+  : "default-light";
+
 const initialAppState = {
   //GoldenSpiral.js and SilverSpiral.js
   orientation:
@@ -52,6 +56,8 @@ const initialAppState = {
     </div>,
   ],
   aboutElements: [],
+  theme: initialTheme,
+  inProp: false,
 };
 
 export default initialAppState;

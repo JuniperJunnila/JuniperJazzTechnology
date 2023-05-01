@@ -1,25 +1,20 @@
 @use "node_modules/bootstrap/scss/bootstrap.scss";
 
-.theme-switch {
+.theme-buttons {
   @extend .btn !optional;
   @extend .btn-lg !optional;
   @extend .btn-floating !optional;
+  @extend .rounded-circle !optional;
   color: var(--text-primary);
-  background-color: var(--background);
+  background: transparent;
   border: 2px var(--text-primary) solid;
   float: right;
   transition: all 0.5s;
-}
+  justify-content: center;
 
-.alternate-theme {
-  @extend .btn !optional;
-  @extend .btn-lg !optional;
-  @extend .btn-floating !optional;
-  color: var(--text-primary);
-  background-color: var(--background);
-  border: 2px var(--text-primary) solid;
-  float: right;
-  transition: all 0.5s;
+  &:hover {
+    background-color: transparentize($color: #808080, $amount: 0.75);
+  }
 }
 
 .site-name {

@@ -7,7 +7,7 @@ import Footer from "../../components/Footer/Footer.js";
 import About from "../../components/About/About.js";
 
 //SCSS Tag Group: r1
-export default function AllRoutes({ appState, updaters, switchTheme }) {
+export default function AllRoutes({ updaters, states }) {
   const {
     _updateHeader,
     _updateHome,
@@ -15,7 +15,11 @@ export default function AllRoutes({ appState, updaters, switchTheme }) {
     _updateAbout,
     _updateFooter,
     _alternateTheme,
+    _switchTheme,
+    _updateInProp,
   } = updaters;
+
+  const { theme, orientation, homeElements, aboutElements } = states;
 
   return (
     <>
@@ -23,10 +27,10 @@ export default function AllRoutes({ appState, updaters, switchTheme }) {
         <article id="article">
           <header className="header" id="header">
             <Header
-              appState={appState}
               _updateHeader={_updateHeader}
-              switchTheme={switchTheme}
+              _switchTheme={_switchTheme}
               _alternateTheme={_alternateTheme}
+              _updateInProp={_updateInProp}
             />
           </header>
           <main id="main" className="main">
@@ -36,9 +40,11 @@ export default function AllRoutes({ appState, updaters, switchTheme }) {
                 path="/"
                 element={
                   <Home
-                    appState={appState}
+                    orientation={orientation}
+                    homeElements={homeElements}
                     _updateOrientation={_updateOrientation}
                     _updateHome={_updateHome}
+                    theme={theme}
                   />
                 }
               />
@@ -46,7 +52,8 @@ export default function AllRoutes({ appState, updaters, switchTheme }) {
                 path="/about"
                 element={
                   <About
-                    appState={appState}
+                    orientation={orientation}
+                    aboutElements={aboutElements}
                     _updateOrientation={_updateAbout}
                   />
                 }
@@ -55,7 +62,7 @@ export default function AllRoutes({ appState, updaters, switchTheme }) {
             </Routes>
           </main>
           <footer id="footer" className="footer">
-            <Footer appState={appState} _updateFooter={_updateFooter} />
+            <Footer _updateFooter={_updateFooter} />
           </footer>
         </article>
       </BrowserRouter>

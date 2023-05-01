@@ -3,6 +3,12 @@
 @use "./mixins.scss";
 @use "./utilities/themes.scss";
 
+html,
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
 .theme-elements {
   background-color: var(--background-color);
   border-color: var(--border-color);
@@ -15,6 +21,7 @@
   font-size: large;
   font-weight: bold;
   transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
 }
 
 .page {
@@ -24,7 +31,19 @@
   padding: 0.5%;
   padding-top: 0;
   padding-bottom: 0;
+  overflow: hidden;
+  position: relative;
 }
+
+// .bg-img {
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   width: 100%;
+//   height: 100%;
+//   pointer-events: none;
+//   background-image: var(--background-image);
+// }
 
 h1,
 h2 {
@@ -38,21 +57,9 @@ h6 {
   font-family: var(--fontstack-secondary);
 }
 
-html,
-body {
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
 article {
   display: flex;
   flex-direction: column;
-}
-
-header,
-main,
-footer {
-  @extend .theme-elements !optional;
 }
 
 main {
@@ -63,27 +70,10 @@ footer {
   @extend .sticky-bottom !optional;
 }
 
-.h-wrapper {
-  justify-self: center;
-  max-height: 100%;
-}
-
-.v-wrapper {
-  max-width: 100%;
-}
-
 .card {
-  background-color: var(--background-color);
-  border-color: var(--border-color);
-  caret-color: var(--caret-color);
-  color: var(--color);
-  column-rule-color: var(--column-rule-color);
-  outline-color: var(--outline-color);
-  text-decoration-color: var(--text-decoration-color);
-  font-family: var(--fontstack-tertiary);
-  font-size: large;
-  font-weight: bold;
+  @extend .card !optional;
+  @extend .theme-elements !optional;
+  background: transparent;
   overflow: scroll;
-  transition: all 0.5s ease-in-out;
   border: 0;
 }

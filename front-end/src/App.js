@@ -1,83 +1,28 @@
-import React, { useState } from "react";
-import useLocalStorage from "use-local-storage";
+import React, { useRef, useState } from "react";
 import AllRoutes from "./utils/Routes/Routes.js";
 import initialAppState from "./utils/initialAppState.js";
+import { __switchTheme, __alternateTheme } from "./utils/theme.js";
+import { Transition } from "react-transition-group";
 
 export default function App() {
   const [appState, setAppState] = useState(initialAppState);
-  const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const [theme, setTheme] = useLocalStorage(
-    "theme",
-    defaultDark === "dark" ? "default-dark" : "default-light"
-  );
 
-  const switchTheme = () => {
-    let newTheme;
+  const { theme, orientation, homeElements, aboutElements, inProp } = appState;
 
-    switch (theme) {
-      case "default-dark":
-        newTheme = "default-light";
-        break;
-      case "default-light":
-        newTheme = "default-dark";
-        break;
+  console.log(theme.startsWith("gold"));
 
-      case "gold-dark":
-        newTheme = "gold-light";
-        break;
-      case "gold-light":
-        newTheme = "gold-dark";
-        break;
-
-      case "green-dark":
-        newTheme = "green-light";
-        break;
-      case "green-light":
-        newTheme = "green-dark";
-        break;
-
-      case "greyscale-dark":
-        newTheme = "greyscale-light";
-        break;
-      case "greyscale-light":
-        newTheme = "greyscale-dark";
-        break;
-
-      default:
-        newTheme = "default-dark";
-        break;
-    }
-
-    setTheme(newTheme);
+  const transitionStyles = {
+    entering: { opacity: 1 },
+    entered: { opacity: 1 },
+    exiting: { opacity: 0 },
+    exited: { opacity: 0 },
   };
 
-  const _alternateTheme = () => {
-    if (theme.startsWith("d")) {
-      if (theme.endsWith("dark")) {
-        setTheme("gold-dark");
-      } else {
-        setTheme("gold-light");
-      }
-    } else if (theme.startsWith("gold")) {
-      if (theme.endsWith("dark")) {
-        setTheme("green-dark");
-      } else {
-        setTheme("green-light");
-      }
-    } else if (theme.startsWith("green")) {
-      if (theme.endsWith("dark")) {
-        setTheme("greyscale-dark");
-      } else {
-        setTheme("greyscale-light");
-      }
-    } else if (theme.startsWith("grey")) {
-      if (theme.endsWith("dark")) {
-        setTheme("default-dark");
-      } else {
-        setTheme("default-light");
-      }
-    }
+  const _updateTheme = (updatedData) => {
+    setAppState({ ...appState, theme: updatedData });
   };
+
+  const _updateInProp = () => {};
 
   const _updateHome = (updatedData) => {
     setAppState({ ...appState, homeElements: updatedData });
@@ -91,19 +36,54 @@ export default function App() {
     setAppState({ ...appState, aboutElements: updatedData });
   };
 
+  const _switchTheme = () => {
+    __switchTheme(theme, _updateTheme);
+  };
+  const _alternateTheme = () => {
+    __alternateTheme(theme, _updateTheme, _updateInProp);
+  };
+
+  const duration = 500;
+
+  const defaultStyle = {
+    transition: `opacity ${duration}ms ease-in-out`,
+    opacity: 0,
+  };
+
+  const nodeRef = useRef(null);
+
   return (
     <div className="page" data-theme={theme}>
+      <Transition nodeRef={nodeRef} in={inProp} timeout={500}>
+        {(state) => (
+          <div
+            className="bg-img"
+            ref={nodeRef}
+            style={{
+              ...defaultStyle,
+              ...transitionStyles[state],
+            }}
+          />
+        )}
+      </Transition>
+
       <AllRoutes
         id="page"
         appState={appState}
+        states={{
+          theme,
+          orientation,
+          homeElements,
+          aboutElements,
+        }}
         updaters={{
           _updateOrientation,
           _updateAbout,
           _updateHome,
           _alternateTheme,
+          _switchTheme,
+          _updateInProp,
         }}
-        theme={theme}
-        switchTheme={switchTheme}
       />
     </div>
   );
